@@ -20,6 +20,7 @@ import json
 
 sense = SenseHat()
 
+# prefix for communication with domoticz via its json API
 url_json = "http://192.168.42.31:8080/json.htm?type=command&param=udevice&idx="
 
 # global data matrix for the measurements: [ name, Domoticz ID, value ]
