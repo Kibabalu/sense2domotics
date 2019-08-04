@@ -12,7 +12,6 @@ frank.kirschbaum@me.com
 """
 
 import asyncio
-import os
 from sense_hat import SenseHat
 import sys
 import urllib.request
