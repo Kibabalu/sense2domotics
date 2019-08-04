@@ -35,31 +35,6 @@ data_matrix = [['temp_sh', 78, 0],
                ['temp_bmp', 74, 0]]
 
 
-def write_pid_file():
-    """
-    Write a PID-file to the path given in parameter dest.
-
-    The name of the PID-file consists of argv[0] + '_' + argv[1] + '_'
-    + argv[2] + '_' + ...
-
-    :param:
-    :return:
-    """
-    pid = os.getpid()                   # get the PID
-
-    # constructing the PID file name
-    file_name = ''
-    for arg in sys.argv:                # adding substrings name and parameters
-        file_name += arg + '_'          # argv[0] + '_' + argv[1] + '_' + ...
-    file_name = file_name[:-1]          # remove last '_'
-    file_name += '.pid'                 # add extension '.pid'
-
-    # writing the PID to the PID file
-    pid_file = open(file_name, 'w')     # open PID file
-    pid_file.write(str(pid))            # write PID to PID file
-    pid_file.close()                    # close PID file
-
-
 async def collect_data_sensehat(cycle_time):
     """
     Read the sensors from sensehat.
@@ -143,8 +118,6 @@ if __name__ == '__main__':
     if len(sys.argv) != 2:                  # check number of arguments
         print('wrong number of parameters. Needed is cycle time in seconds')
         sys.exit(0)
-
-    write_pid_file()                        # write PID-file, e.c. for monit
 
     # scheduler init stuff:
     print('starting the scheduler')
