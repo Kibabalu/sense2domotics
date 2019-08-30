@@ -34,7 +34,7 @@ data_matrix = [['temp_sh', 78, 0],
                ['temp_bmp', 74, 0]]
 
 
-async def collect_data_sensehat(cycle_time):
+async def collect_data_sensehat(cycle_time: int) -> None:
     """
     Read the sensors from sensehat.
 
@@ -53,7 +53,7 @@ async def collect_data_sensehat(cycle_time):
         await asyncio.sleep(cycle_time)
 
 
-async def collect_data_ESP8266(cycle_time):
+async def collect_data_ESP8266(cycle_time: int) -> None:
     """
     Collect data from ESP8266 with the sensors SDS011, BMP180 and DHT22.
 
@@ -89,7 +89,7 @@ async def collect_data_ESP8266(cycle_time):
         await asyncio.sleep(cycle_time)
 
 
-async def send_data_domoticz(cycle_time):
+async def send_data_domoticz(cycle_time: int) -> None:
     """
     Send data to Domoticz server using the JSON/API.
 
